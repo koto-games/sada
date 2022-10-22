@@ -30,7 +30,8 @@ while True:
 # rh === прочитать репозиторий
 # cre === очистить репозиторий и записать текст
 # rr === записать текст
-# ir === удалить репозиторий''')
+# ir === удалить репозиторий
+# rt === переименовать репозиторий''')
         ww = www.split(': ')
         if ww[0] == 're':
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1])):
@@ -81,6 +82,14 @@ while True:
                 fdafsf.write(ddd[1])
                 fdafsf.close()
                 print('текст сохранен')
+            else:
+                print('какого репозитория нету')
+
+        elif ww[0] == 'rt':
+            ddd = ww[1].split(',')
+            if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0])):
+                os.rename("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0]),
+                "C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[1]))
             else:
                 print('какого репозитория нету')
 
