@@ -29,7 +29,8 @@ while True:
 # sh === показать все созданные репозитории
 # rh === прочитать репозиторий
 # cre === очистить репозиторий и записать текст
-# rr === записать текст''')
+# rr === записать текст
+# ir === удалить репозиторий''')
         ww = www.split(': ')
         if ww[0] == 're':
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1])):
@@ -72,6 +73,7 @@ while True:
                 print('текст сохранен')
             else:
                 print('какого репозитория нету')
+
         elif ww[0] == 'rr':
             ddd = ww[1].split(',')
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0])):
@@ -81,5 +83,13 @@ while True:
                 print('текст сохранен')
             else:
                 print('какого репозитория нету')
+
+        elif ww[0] == 'ir':
+            if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1])):
+                os.remove("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1]))
+                print('репозиторий '+ww[1]+' удален')
+            else:
+                print('какого репозитория нету')
+            
     except:
         print('!!!')
