@@ -15,6 +15,13 @@ print('''
     ─██████████████─██████──██████─████████████───██████──██████─
     ─────────────────────────────────────────────────────────────
 ''')
+if os.path.exists("C:/Users/{}/Documents/woss/notes.rw".format(USE)):
+    fda = open("C:/Users/{}/Documents/woss/notes.rw".format(USE), 'r', -1, 'utf-16be')
+    ur = fda.read()
+    ur = ur.replace('\\n','\n')
+    if ur != '':
+        print(ur)
+    fda.close()
 
 if os.path.exists("C:/Users/{}/Documents/woss".format(USE)):
     pass
@@ -25,14 +32,17 @@ while True:
     try:
         www = input('[>>')
         if www == 'h':
-            print('''# re === создать репозиторий
+            print('''
+# re === создать репозиторий
 # sh === показать все созданные репозитории
 # rh === прочитать репозиторий
 # cre === очистить репозиторий и записать текст
+# yy === очистить репозиторий
 # rr === записать текст
 # ir === удалить репозиторий
-# rt === переименовать репозиторий''')
-        ww = www.split(': ')
+# rt === переименовать репозиторий
+''')
+        ww = www.split(' ')
         if ww[0] == 're':
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1])):
                 print('репозиторий уже существует')
@@ -57,6 +67,7 @@ while True:
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1])):
                 fda = open("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1]), 'r', -1, 'utf-16be')
                 ur = fda.read()
+                ur = ur.replace('\\n','\n')
                 if ur != '':
                     print(ur)
                 else:
@@ -75,6 +86,16 @@ while True:
             else:
                 print('какого репозитория нету')
 
+        elif ww[0] == 'yy':
+            ddd = ww[1].split(',')
+            if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0])):
+                fdafsf = open("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0]), 'w', -1, 'utf-16be')
+                fdafsf.write('')
+                fdafsf.close()
+                print('репозиторий очищен')
+            else:
+                print('какого репозитория нету')
+
         elif ww[0] == 'rr':
             ddd = ww[1].split(',')
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0])):
@@ -90,6 +111,7 @@ while True:
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0])):
                 os.rename("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[0]),
                 "C:/Users/"+USE+"/Documents/woss/{}.rw".format(ddd[1]))
+                print('файл '+ddd[0]+' переименован в '+ddd[1])
             else:
                 print('какого репозитория нету')
 
