@@ -1,5 +1,36 @@
 import os
+import shutil
 USE = os.environ.get( "USERNAME" )
+
+
+if os.path.exists("C:/Users/{}/Documents/woss/password.rw".format(USE)):
+    po = open("C:/Users/{}/Documents/woss/password.rw".format(USE), 'r', -1, 'utf-16be')
+    poo = po.read()
+    poo =  poo.replace('\\n','\n')
+    po.close()
+    while True:
+        we = input('пароль>')
+        if we == '#123456':
+            g = input('''1) удалить данные
+2) назад
+''')
+            if g == "1":
+                g = os.listdir("C:/Users/{}/Documents/woss".format(USE))
+                g1 = 0
+                while g1+1 <= len(g):
+                    try:
+                        os.remove("C:/Users/"+USE+"/Documents/woss/"+g[g1])
+                    except:
+                        pass
+                    print('данные удалены')
+                    g1 = g1 + 1
+                break
+        if we == poo:
+            break
+    
+        
+
+
 print('''
     ─────────────────────────────────────────────────────────────
     ─██████████████─██████████████─████████████───██████████████─
@@ -15,6 +46,9 @@ print('''
     ─██████████████─██████──██████─████████████───██████──██████─
     ─────────────────────────────────────────────────────────────
 ''')
+
+
+
 if os.path.exists("C:/Users/{}/Documents/woss/notes.rw".format(USE)):
     fda = open("C:/Users/{}/Documents/woss/notes.rw".format(USE), 'r', -1, 'utf-16be')
     ur = fda.read()
