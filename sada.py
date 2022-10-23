@@ -1,5 +1,5 @@
 import os
-import shutil
+
 USE = os.environ.get( "USERNAME" )
 
 
