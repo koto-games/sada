@@ -76,6 +76,8 @@ while True:
 # ir === удалить репозиторий
 # rt === переименовать репозиторий
 ''')
+
+
         ww = www.split(' ')
         if ww[0] == 're':
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1])):
@@ -96,7 +98,8 @@ while True:
                 print(g1+1,' >',oo)
                 g1 = g1+1
             print('')
-
+        elif ww[0] == 'привет':
+            print('       你好')
         elif ww[0] == 'rh':
             if os.path.exists("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1])):
                 fda = open("C:/Users/"+USE+"/Documents/woss/{}.rw".format(ww[1]), 'r', -1, 'utf-16be')
